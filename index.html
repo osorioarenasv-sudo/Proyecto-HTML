@@ -2,32 +2,274 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Mi Portafolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentina Osorio Arenas · Portafolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --bg: #fff0f8;
+    --bg-dot: #ffd6ee;
+    --surface: #ffffff;
+    --card: #ffe3f3;
+    --ink: #521a5e;
+    --ink-soft: #8a4a91;
+    --pink: #ff4fa3;
+    --purple: #9b4de3;
+    --turquoise: #22c7c2;
+    --gold: #ffcb3d;
+    --gradient: linear-gradient(120deg, #ff8fd6 0%, #c17dff 45%, #6fe3e6 100%);
+    --shadow: 4px 4px 0 var(--ink);
+  }
+
+  [data-theme="dark"] {
+    --bg: #1c0e26;
+    --bg-dot: #2c1338;
+    --surface: #2a1435;
+    --card: #391a45;
+    --ink: #ffd9f2;
+    --ink-soft: #e2a9e8;
+    --pink: #ff6bb3;
+    --purple: #b57bf0;
+    --turquoise: #3fd8d3;
+    --gold: #ffd166;
+    --gradient: linear-gradient(120deg, #7a1f66 0%, #5a2a8f 45%, #1a6b6e 100%);
+    --shadow: 4px 4px 0 #0e0614;
+  }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: Arial, sans-serif; }
-  
-  /* TODO: personaliza estos colores */
-  header { background: #2c3e50; color: white; padding: 60px 20px; text-align: center; }
-  header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-  header p { font-size: 1.2rem; opacity: 0.8; }
-  
-  nav { background: #34495e; padding: 15px; text-align: center; }
-  nav a { color: white; margin: 0 15px; text-decoration: none; }
-  
-  section { padding: 50px 20px; max-width: 800px; margin: 0 auto; }
-  section h2 { margin-bottom: 20px; color: #2c3e50; }
-  
-  .proyecto { background: #f4f4f4; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
-  
-  footer { background: #2c3e50; color: white; text-align: center; padding: 20px; }
+
+  body {
+    font-family: 'Baloo 2', sans-serif;
+    background-color: var(--bg);
+    background-image: radial-gradient(var(--bg-dot) 2.5px, transparent 2.5px);
+    background-size: 20px 20px;
+    color: var(--ink);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, nav a, .pixel-font {
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  .star-divider {
+    text-align: center;
+    color: var(--turquoise);
+    letter-spacing: 12px;
+    font-size: 0.85rem;
+    margin: 6px 0;
+  }
+
+  header {
+    background: var(--gradient);
+    border-bottom: 5px solid var(--ink);
+    padding: 75px 20px 55px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: "✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧";
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 10px;
+    white-space: nowrap;
+  }
+
+  header h1 {
+    font-size: 1.45rem;
+    line-height: 2.1;
+    color: #ffffff;
+    text-shadow: 3px 3px 0 var(--ink);
+    margin-bottom: 18px;
+  }
+
+  header p {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    background: rgba(255,255,255,0.85);
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 2px solid var(--ink);
+  }
+
+  nav {
+    background: var(--card);
+    border-bottom: 3px solid var(--ink);
+    padding: 16px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  nav a {
+    color: var(--purple);
+    margin: 0 12px;
+    text-decoration: none;
+    font-size: 0.65rem;
+    line-height: 2.2;
+    padding: 6px 10px;
+    border-radius: 999px;
+  }
+
+  nav a:hover { background: var(--pink); color: white; }
+
+  section {
+    padding: 55px 20px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  section h2 {
+    font-size: 1rem;
+    margin-bottom: 28px;
+    color: var(--purple);
+  }
+
+  section p { line-height: 1.75; color: var(--ink-soft); font-size: 1.05rem; }
+
+  .proyecto {
+    background: var(--card);
+    padding: 22px;
+    border: 3px solid var(--purple);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 22px;
+  }
+
+  .proyecto h3 {
+    font-weight: 800;
+    color: var(--pink);
+    margin-bottom: 10px;
+    font-size: 1.15rem;
+  }
+
+  .proyecto h3::before { content: "💗 "; }
+
+  #contacto a {
+    color: var(--pink);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 3px dotted var(--turquoise);
+  }
+
+  /* Botones glossy estilo Y2K */
+  .mensaje-btn, .theme-btn {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    color: #ffffff;
+    border: 3px solid var(--ink);
+    border-radius: 999px;
+    padding: 14px 20px;
+    cursor: pointer;
+    background: linear-gradient(180deg, #ff9fd0 0%, var(--pink) 60%, #d63385 100%);
+    box-shadow: var(--shadow);
+    position: relative;
+    transition: transform 0.1s ease;
+  }
+
+  .mensaje-btn::after, .theme-btn::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 14px;
+    right: 14px;
+    height: 35%;
+    background: rgba(255,255,255,0.55);
+    border-radius: 999px;
+  }
+
+  .theme-btn {
+    background: linear-gradient(180deg, #9de6e3 0%, var(--turquoise) 60%, #0f8c88 100%);
+  }
+
+  .mensaje-btn:hover, .theme-btn:hover { filter: brightness(1.08); }
+
+  .mensaje-btn:active, .theme-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+  }
+
+  #mensaje-sorpresa {
+    margin-top: 20px;
+    padding: 18px;
+    background: var(--card);
+    border: 3px dashed var(--pink);
+    border-radius: 18px;
+    font-weight: 700;
+    color: var(--purple);
+    display: none;
+  }
+
+  #mensaje-sorpresa.visible {
+    display: block;
+    animation: pop 0.25s ease;
+  }
+
+  @keyframes pop {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  footer {
+    background: var(--gradient);
+    border-top: 5px solid var(--ink);
+    text-align: center;
+    padding: 30px 20px 40px;
+  }
+
+  footer p { margin-bottom: 18px; color: #ffffff; text-shadow: 2px 2px 0 var(--ink); font-size: 0.9rem; font-weight: 700; }
+
+  .footer-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+  }
+
+  /* Contador estilo "hit counter" de los 2000s */
+  .contador {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #1a0f22;
+    border: 3px solid var(--ink);
+    border-radius: 14px;
+    padding: 8px 14px;
+    box-shadow: var(--shadow);
+  }
+
+  .contador span.label {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.55rem;
+    color: var(--gold);
+  }
+
+  .contador span.digits {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.75rem;
+    color: var(--gold);
+    background: #0f0815;
+    border-radius: 6px;
+    padding: 6px 8px;
+    letter-spacing: 3px;
+  }
 </style>
 </head>
 <body>
 
   <header>
-    <h1>Nombre: Valentina Osorio Arenas</h1>
-    <p>Carrera: Desarrolladora de Software en formación</p>
+    <h1>Valentina<br>Osorio Arenas</h1>
+    <p>Desarrolladora de Software en formación</p>
   </header>
 
   <nav>
@@ -36,37 +278,83 @@
     <a href="#contacto">Contacto</a>
   </nav>
 
+  <div class="star-divider">✦ ✧ ✦ ✧ ✦</div>
+
   <section id="sobre-mi">
     <h2>Sobre mí</h2>
     <p>Soy estudiante de Tecnología en Análisis y Desarrollo de Software en el SENA. Me interesa la programación porque me permite crear soluciones a problemas reales y transformar ideas en aplicaciones útiles. Me llama especialmente la atención el desarrollo de software, las bases de datos, el análisis de información y las pruebas de calidad, áreas en las que puedo aprovechar también mi experiencia como analista de calidad.</p>
+
+    <button class="mensaje-btn" id="btn-mensaje" style="margin-top: 26px;">✧ Presiona aquí ✧</button>
+    <div id="mensaje-sorpresa">¡Gracias por pasar por mi portafolio! Cada proyecto aquí es un paso más en mi camino como desarrolladora. 💖</div>
   </section>
+
+  <div class="star-divider">✦ ✧ ✦ ✧ ✦</div>
 
   <section id="proyectos">
     <h2>Mis Proyectos</h2>
-    
+
     <div class="proyecto">
-      <h3>Sistema de cafetería escolar:</h3>
-      <p>proyecto orientado a facilitar la gestión de pedidos mediante una aplicación.</p>
+      <h3>Sistema de cafetería escolar</h3>
+      <p>Proyecto orientado a facilitar la gestión de pedidos mediante una aplicación.</p>
     </div>
 
     <div class="proyecto">
-      <h3>Plataforma de adopción de mascotas:</h3>
-      <p>propuesta de software para conectar personas interesadas en adoptar con mascotas disponibles.</p>
+      <h3>Plataforma de adopción de mascotas</h3>
+      <p>Propuesta de software para conectar personas interesadas en adoptar con mascotas disponibles.</p>
     </div>
   </section>
+
+  <div class="star-divider">✦ ✧ ✦ ✧ ✦</div>
 
   <section id="contacto">
     <h2>Contacto</h2>
-    <p>TODO: https://github.com/osorioarenasv-sudo</p>
+    <p>Encuéntrame en GitHub: <a href="https://github.com/osorioarenasv-sudo" target="_blank" rel="noopener">github.com/osorioarenasv-sudo</a></p>
   </section>
 
   <footer>
-    <p>Valentina Osorio Arenas - 2026</p>
+    <p>Valentina Osorio Arenas · 2026</p>
+    <div class="footer-controls">
+      <button class="theme-btn" id="btn-tema">☀ / ☾</button>
+      <div class="contador">
+        <span class="label">VISITAS</span>
+        <span class="digits" id="contador-digitos">000000</span>
+      </div>
+    </div>
   </footer>
 
   <script>
-    // TODO: agrega algo de interactividad, por ejemplo:
-    // cambiar el color del header al hacer scroll
+    // 1. Alternar entre modo oscuro y modo claro
+    const btnTema = document.getElementById('btn-tema');
+    const temaGuardado = localStorage.getItem('tema') || 'light';
+    if (temaGuardado === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    btnTema.addEventListener('click', () => {
+      const actual = document.documentElement.getAttribute('data-theme');
+      if (actual === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('tema', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('tema', 'dark');
+      }
+    });
+
+    // 2. Mensaje sorpresa al hacer clic
+    const btnMensaje = document.getElementById('btn-mensaje');
+    const mensaje = document.getElementById('mensaje-sorpresa');
+
+    btnMensaje.addEventListener('click', () => {
+      mensaje.classList.toggle('visible');
+    });
+
+    // 3. Contador de visitas estilo retro
+    const digitos = document.getElementById('contador-digitos');
+    let visitas = parseInt(localStorage.getItem('visitas') || '0', 10);
+    visitas += 1;
+    localStorage.setItem('visitas', visitas);
+    digitos.textContent = String(visitas).padStart(6, '0');
   </script>
 
 </body>
